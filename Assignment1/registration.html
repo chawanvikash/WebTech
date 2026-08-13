@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body bgcolor="#ffffff">
+    <center>
+        <h2><font face="Arial" color="#003366">Student Registration Portal</font></h2>
+        <hr width="80%">
+        <p><font face="Arial" size="3" color="#555555"><i>Please fill out this form to access the semester-wise question bank.</i></font></p>
+    </center>
+    
+    <table align="center" border="1" bordercolor="#cccccc" cellpadding="12" cellspacing="0" width="65%" bgcolor="#f9f9f9">
+        <form action="courses.html" method="get">
+            <tr>
+                <td width="35%"><font face="Arial"><b>Full Name:</b></font></td>
+                <td><input type="text" name="student_name" size="40"></td>
+            </tr>
+            <tr>
+                <td><font face="Arial"><b>Academic Detail (Dept & Year):</b></font></td>
+                <td>
+                    <select name="department">
+                        <option>Computer Science (B.Tech)</option>
+                        <option>Information Technology</option>
+                    </select>
+                    <br><br>
+                    <font face="Arial" size="2">
+                    <input type="radio" name="year" value="1"> 1st Year
+                    <input type="radio" name="year" value="2"> 2nd Year
+                    <input type="radio" name="year" value="3"> 3rd Year
+                    <input type="radio" name="year" value="4"> 4th Year
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td><font face="Arial"><b>Contact (Email):</b></font></td>
+                <td><input type="email" name="contact_email" size="40"></td>
+            </tr>
+            <tr>
+                <td><font face="Arial"><b>Upload Photograph:</b></font></td>
+                <td><input type="file" name="student_photo"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" bgcolor="#e6f2ff">
+                    <input type="submit" value="Register & Proceed to Courses">
+                </td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>
