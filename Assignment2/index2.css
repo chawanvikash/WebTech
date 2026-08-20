@@ -1,0 +1,183 @@
+/* --- modal.css --- */
+
+/* Container for the demo section on the main page */
+.demo-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    border-top: 1px solid #334155;
+}
+
+.demo-title {
+    font-size: 1.5rem;
+    color: #f8fafc;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Base Variables for the isolated Demo Area (Default Light) */
+.modal-demo-area {
+    --bg-page: #e5e5e5;
+    --bg-window: #ffffff;
+    --text-main: #000000;
+    --text-sub: #555555;
+    --border-color: #cccccc;
+    --btn-bg: #e1e1e1;
+    --btn-blue: #3b82f6;
+
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    padding: 40px 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    transition: background-color 0.3s ease;
+}
+
+/* Dark Theme specific to the Demo Area */
+.modal-demo-area:has(.theme-picker option[value="dark"]:checked) {
+    --bg-page: #1a1a1a;
+    --bg-window: #2d2d2d;
+    --text-main: #ffffff;
+    --text-sub: #aaaaaa;
+    --border-color: #555555;
+    --btn-bg: #444444;
+    --btn-blue: #2563eb;
+}
+
+/* Blue Theme specific to the Demo Area */
+.modal-demo-area:has(.theme-picker option[value="blue"]:checked) {
+    --bg-page: #dbeafe;
+    --bg-window: #ffffff;
+    --text-main: #1e3a8a;
+    --text-sub: #3b82f6;
+    --border-color: #93c5fd;
+    --btn-bg: #eff6ff;
+    --btn-blue: #1d4ed8;
+}
+
+/* Theme Selector */
+.theme-box {
+    margin-bottom: 20px;
+}
+
+.theme-picker {
+    padding: 4px;
+    background: var(--bg-window);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+/* Window Box */
+.window {
+    background: var(--bg-window);
+    border: 1px solid var(--border-color);
+    width: 420px;
+    padding: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+.window-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.close {
+    cursor: pointer;
+    color: var(--text-sub);
+}
+
+/* Grid Content */
+.window-body {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+}
+
+.group {
+    margin-bottom: 15px;
+}
+
+.title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.title small {
+    font-weight: normal;
+    color: var(--text-sub);
+}
+
+.options {
+    display: flex;
+    gap: 10px;
+}
+
+.dropdown {
+    width: 100%;
+    padding: 3px;
+    background: var(--bg-window);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.color-box {
+    width: 35px;
+    height: 20px;
+    background: #e0e0e0;
+    border: 1px solid var(--border-color);
+}
+
+/* Margins Fields */
+.field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.field input {
+    width: 50px;
+    text-align: right;
+    padding: 2px;
+    background: var(--bg-window);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.window-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 5px 12px;
+    border: 1px solid var(--border-color);
+    background: var(--btn-bg);
+    color: var(--text-main);
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.btn-blue {
+    background: var(--btn-blue);
+    color: white;
+    border: none;
+}
