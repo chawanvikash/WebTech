@@ -4,145 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me | Chawan Vikash</title>
-    <!-- Link BOTH CSS files -->
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="index2.css">
     
+    
+    <link rel="stylesheet" href="index.css"> 
+    <link rel="stylesheet" href="index2.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    
+    <style>
+        .demo-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            border-top: 1px solid #334155;
+        } 
+        
+        .demo-title {
+            font-size: 1.5rem;
+            color: #f8fafc;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .cgp-loc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 16px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+} 
+    </style>
 </head>
 <body>
     
-    <!-- PORTFOLIO SECTION -->
+   
     <main class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="header">
-                <h1>Chawan Vikash</h1>
-                <p>Full Stack Web Developer</p>
+        <section class="hero"> 
+            <div class="header"> 
+                <h1>Chawan Vikash</h1> 
+                <p>B.Tech Computer Science</p> 
+            </div> 
+            <div class="image"> 
+                <img id="im" src="img1.jpeg" alt="Chawan Vikash Photo" style="width: 140px;
+                    height: 140px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 4px solid #f1f5f9;
+                    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);"> 
             </div>
-            <div class="image">
-                <img id="im" src="img1.jpeg" alt="Chawan Vikash Photo">
-            </div>
-        </section>
+        </section> 
 
-        <!-- Education Section -->
-        <section class="AboutMe">
-            <h2 class="section-title">Education</h2>
-            <div class="education-grid">
+        <section class="AboutMe"> <
+            
+            <h2 class="section-title" style="text-align: center; text-transform: uppercase;">Education</h2> 
+            <div class="education-grid"> 
                 
                 <div class="card bTech">
-                    <h3>B.Tech in Computer Science & Technology</h3>
-                    <h4>Indian Institute of Engineering Science and Technology, Shibpur</h4>
-                    <div class="cgp-loc">
-                        <p>2024 – 2028 | Shibpur, India</p>
-                        <p class="highlight">CGPA: 8.04</p>
-                    </div>
-                </div>
+                    <h3>B.Tech in Computer Science & Technology</h3> 
+                    <h4 style="color: #64748b; font-size: 0.95rem; font-weight: 500; margin-bottom: 20px;">Indian Institute of Engineering Science and Technology, Shibpur</h4> 
+                    <div class="cgp-loc"> 
+                        <p>2024 – 2028 | Shibpur, India</p> 
+                        <p class="highlight">CGPA: 8.04</p> 
+                    </div> 
+                </div> 
 
-                <div class="card cl12">
-                    <h3>Senior Secondary (XII) in Science</h3>
+                <div class="card cl12"> 
+                    <h3>Senior Secondary (XII) in Science</h3> 
                     <h4>Jawahar Navodaya Vidyalaya Kagaznagar, Telangana</h4>
-                    <div class="cgp-loc">
-                        <p>2022 – 2024 | Adilabad, India</p>
-                        <p class="highlight">Percentage: 94.8%</p>
+                    <div class="cgp-loc"> 
+                        <p>2022 – 2024 | Adilabad, India</p> 
+                        <p class="highlight">Percentage: 94.8%</p> 
                     </div>
-                </div>
+                </div> 
 
-                <div class="card cl10">
-                    <h3>Secondary (X)</h3>
-                    <h4>Jawahar Navodaya Vidyalaya Kagaznagar, Telangana</h4>
-                    <div class="cgp-loc">
-                        <p>2021 – 2022 | Adilabad, India</p>
-                        <p class="highlight">Percentage: 91.4%</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+                <div class="card cl10"> 
+                    <h3>Secondary (X)</h3> 
+                    <h4>Jawahar Navodaya Vidyalaya Kagaznagar, Telangana</h4> 
+                    <div class="cgp-loc"> 
+                        <p>2021 – 2022 | Adilabad, India</p> 
+                        <p class="highlight">Percentage: 91.4%</p> 
+                    </div> 
+                </div> 
+            </div> 
+        </section> 
+    </main> 
 
     <!-- INTERACTIVE DEMO SECTION -->
-    <section class="demo-container">
-        <h2 class="demo-title">Live Demo: Page Setup Modal</h2>
+    <section class="demo-container"> 
+        <h2 class="demo-title">Live Demo: Page Setup Modal</h2> 
         
-        <!-- The isolated area for the modal to prevent CSS conflicts -->
-        <div class="modal-demo-area">
+        <div class="modal-demo-area"> 
             
-            <!-- Theme Selector -->
-            <div class="theme-box">
-                <label for="themeSelect">Theme:</label>
-                <select id="themeSelect" class="theme-picker">
-                    <option value="light">Default Light</option>
-                    <option value="dark">Dark</option>
-                    <option value="blue">Blue</option>
-                </select>
-            </div>
+            <div class="theme-box"> 
+                <label for="themeSelect">Theme:</label> 
+                <select id="themeSelect" class="theme-picker"> 
+                    <option value="light">Default Light</option> 
+                    <option value="dark">Dark</option> 
+                    <option value="blue">Blue</option> 
+                </select> 
+            </div> 
 
-            <!-- Page Setup Modal Window -->
-            <div class="window">
-                <div class="window-header">
-                    <span>Page Setup</span>
-                    <span class="close">&times;</span>
-                </div>
+            <div class="window"> 
+                <div class="window-header"> 
+                    <span>Page Setup</span> 
+                    <span class="close">&times;</span> 
+                </div> 
 
-                <div class="window-body">
-                    <!-- Left Side -->
-                    <div class="column">
-                        <div class="group">
-                            <label class="title">Orientation</label>
-                            <div class="options">
-                                <label><input type="radio" name="ori" checked> Portrait</label>
-                                <label><input type="radio" name="ori"> Landscape</label>
-                            </div>
-                        </div>
+                <div class="window-body"> 
+                    <div class="column"> 
+                        <div class="group"> 
+                            <label class="title">Orientation</label> 
+                            <div class="options"> 
+                                <label><input type="radio" name="ori" checked> Portrait</label> 
+                                <label><input type="radio" name="ori"> Landscape</label> 
+                            </div> 
+                        </div> 
 
-                        <div class="group">
-                            <label class="title">Paper Size</label>
-                            <select class="dropdown">
-                                <option>Letter (21.6 cm x 27.9 cm)</option>
-                                <option>A4 (21.0 cm x 29.7 cm)</option>
-                            </select>
-                        </div>
+                        <div class="group"> 
+                            <label class="title">Paper Size</label> 
+                            <select class="dropdown"> 
+                                <option>Letter (21.6 cm x 27.9 cm)</option> 
+                                <option>A4 (21.0 cm x 29.7 cm)</option> 
+                            </select> 
+                        </div> 
 
-                        <div class="group">
-                            <label class="title">Page Colour</label>
-                            <div class="color-box"></div>
-                        </div>
-                    </div>
+                        <div class="group"> 
+                            <label class="title">Page Colour</label> 
+                            
+                            <div class="color-box" style="border-radius: 4px;"></div> 
+                        </div> 
+                    </div> 
 
-                    <!-- Right Side -->
-                    <div class="column">
-                        <div class="group">
-                            <label class="title">Margins <small>(centimetres)</small></label>
-                            <div class="field">
-                                <span>Top</span>
-                                <input type="text" value="2.54">
-                            </div>
-                            <div class="field">
-                                <span>Bottom</span>
-                                <input type="text" value="2.54">
-                            </div>
-                            <div class="field">
-                                <span>Left</span>
-                                <input type="text" value="2.54">
-                            </div>
-                            <div class="field">
-                                <span>Right</span>
-                                <input type="text" value="2.54">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="column"> 
+                        <div class="group"> 
+                            <label class="title">Margins <small>(centimetres)</small></label> 
+                            <div class="field"> 
+                                <span>Top</span> 
+                                <input type="text" value="2.54"> 
+                            </div> 
+                            <div class="field"> 
+                                <span>Bottom</span> 
+                                <input type="text" value="2.54"> 
+                            </div> 
+                            <div class="field"> 
+                                <span>Left</span> 
+                                <input type="text" value="2.54"> 
+                            </div> 
+                            <div class="field"> 
+                                <span>Right</span> 
+                                <input type="text" value="2.54"> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
 
-                <div class="window-footer">
-                    <div class="btn-group">
-                        <button class="btn btn-blue">OK</button>
-                        <button class="btn">Cancel</button>
-                    </div>
-                    <button class="btn">Set as default</button>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="window-footer"> 
+                    <div class="btn-group"> 
+                        <button class="btn btn-blue">OK</button> 
+                        <button class="btn">Cancel</button> 
+                    </div> 
+                    <button class="btn">Set as default</button> 
+                </div> 
+            </div> 
+        </div> 
+    </section> 
 
 </body>
 </html>
