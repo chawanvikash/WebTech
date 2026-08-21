@@ -1,16 +1,137 @@
 <!DOCTYPE html>
-<html>
-<body bgcolor="#e6f2ff">
-    <h3><font face="Arial" color="#003360"><u>Navigation</u></font></h3>
-    <font face="Verdana" size="3">
-    <ul>
-        <br>
-        <li><a href="registration.html" target="main_frame"><b>Register</b></a></li>
-        <br><br>
-        <li><a href="courses.html" target="main_frame"><b>Course Structure</b></a></li>
-        <br><br>
-        <li><a href="blog.html" target="main_frame"><b>Student Blog</b></a></li>
-    </ul>
-    </font>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style>
+        /* Base Reset so the wrapper fills the whole frame */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        /* 1. Hide the actual radio buttons */
+        .theme-radio {
+            display: none;
+        }
+
+        /* 2. Base Theme (Original Blue) */
+        .theme-wrapper {
+            --bg-color: #e6f2ff;
+            --heading-color: #003360;
+            --text-color: #000000;
+            --link-color: #0000ee;
+            --btn-bg: #ffffff;
+            
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: Verdana, sans-serif;
+            font-size: 16px;
+            min-height: 100vh;
+            padding: 20px;
+            
+            /* Smooth fade between themes */
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* 3. Dark Theme - Activated when the second radio is checked */
+        #theme-dark:checked ~ .theme-wrapper {
+            --bg-color: #1e1e1e;
+            --heading-color: #8ab4f8;
+            --text-color: #e8eaed;
+            --link-color: #8ab4f8;
+            --btn-bg: #333333;
+        }
+
+        /* 4. Warm Sepia Theme - Activated when the third radio is checked */
+        #theme-warm:checked ~ .theme-wrapper {
+            --bg-color: #fdf6e3;
+            --heading-color: #b58900;
+            --text-color: #657b83;
+            --link-color: #cb4b16;
+            --btn-bg: #eee8d5;
+        }
+
+        /* --- Element Styling --- */
+        h3 {
+            color: var(--heading-color);
+            font-family: Arial, sans-serif;
+            text-decoration: underline;
+            transition: color 0.4s ease;
+        }
+
+        a {
+            color: var(--link-color);
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.4s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style-type: disc;
+        }
+
+        li {
+            margin-bottom: 20px; /* Replaces the <br> tags */
+        }
+
+        /* Theme Buttons Styling */
+        .theme-controls {
+            margin-bottom: 30px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .theme-label {
+            padding: 5px 10px;
+            font-size: 12px;
+            background-color: var(--btn-bg);
+            border: 1px solid var(--heading-color);
+            color: var(--heading-color);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .theme-label:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <input type="radio" name="nav-theme" id="theme-blue" class="theme-radio" checked>
+    <input type="radio" name="nav-theme" id="theme-dark" class="theme-radio">
+    <input type="radio" name="nav-theme" id="theme-warm" class="theme-radio">
+
+   
+    <div class="theme-wrapper">
+        
+        
+        <div class="theme-controls">
+            <label for="theme-blue" class="theme-label">Blue</label>
+            <label for="theme-dark" class="theme-label">Dark</label>
+            <label for="theme-warm" class="theme-label">Sepia</label>
+        </div>
+
+        <h3>Navigation</h3>
+        
+        <ul>
+            <li><a href="registration.html" target="main_frame">Register</a></li>
+            <li><a href="courses.html" target="main_frame">Course Structure</a></li>
+            <li><a href="blog.html" target="main_frame">Student Blog</a></li>
+        </ul>
+
+    </div>
+
 </body>
 </html>
