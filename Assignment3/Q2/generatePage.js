@@ -6,36 +6,35 @@ document.write("<meta charset='UTF-8'>");
 document.write("<title>System Generated Document</title>");
 document.write("<style>");
 
-/* Professional, modern CSS Variables */
+
 document.write(":root { --primary: #0f172a; --secondary: #475569; --bg: #e2e8f0; --card: #ffffff; --border: #cbd5e1; }");
 
-/* Global reset and styling */
+
 document.write("body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif; background-color: var(--bg); color: var(--primary); display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }");
 
-/* The 'Paper' Card */
+
 document.write(".document-wrapper { background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); padding: 50px; max-width: 600px; width: 100%; }");
 
-/* Header Styling */
+
 document.write(".header { border-bottom: 2px solid var(--border); padding-bottom: 20px; margin-bottom: 30px; text-align: center; }");
 document.write(".header h1 { margin: 0; font-size: 26px; font-weight: 600; color: var(--primary); letter-spacing: -0.5px; }");
 document.write(".header p { margin: 8px 0 0; color: var(--secondary); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }");
 
-/* Content Styling */
+
 document.write(".content { margin-bottom: 40px; font-size: 16px; line-height: 1.6; color: var(--secondary); text-align: center; }");
 
-/* Button Styling */
+
 document.write(".button-group { text-align: center; }");
 document.write(".btn-print { background-color: var(--primary); color: white; border: none; padding: 12px 28px; font-size: 15px; font-weight: 500; border-radius: 6px; cursor: pointer; transition: background-color 0.2s ease, transform 0.1s ease; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }");
 document.write(".btn-print:hover { background-color: #334155; transform: translateY(-1px); }");
 
-/* Print-specific layout */
 document.write("@media print { body { background: white; padding: 0; } .document-wrapper { border: none; box-shadow: none; padding: 0; max-width: 100%; } .btn-print { display: none; } }");
 
 document.write("</style>");
 document.write("</head>");
 document.write("<body>");
 
-/* HTML Structure generated via JS */
+
 document.write("<div class='document-wrapper'>");
     
     document.write("<div class='header'>");

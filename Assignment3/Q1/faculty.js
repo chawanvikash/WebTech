@@ -2,23 +2,23 @@
 const facultyDatabase = [
     {
         name: "Dr. Sekhar Mandal",
-        photo: "https://xsgames.co/randomusers/assets/avatars/male/12.jpg",
+        photo: "https://oldwww.iiests.ac.in//images/facultyimg/sekhar__cst.jpg",
         email: "sekhar@cs.iiests.ac.in",
         qualification: "Ph.D.",
         subjects: "Database Management Systems, Software Engineering",
         research: "Image Processing, Pattern Recognition"
     },
     {
-        name: "Dr. Prasun Ghosal",
-        photo: "https://xsgames.co/randomusers/assets/avatars/male/45.jpg",
-        email: "pghosal@cs.iiests.ac.in",
-        qualification: "Ph.D.",
+        name: "Dr. Manas Hira",
+        photo: "https://oldwww.iiests.ac.in/images/facultyimg/cst_mhira.jpg",
+        email: "manashira@cs.iiests.ac.in",
+        qualification: "M.Tech",
         subjects: "Operating Systems, Computer Architecture",
-        research: "VLSI Design, Embedded Systems, AI"
+        research: "Theoretical Computer Science"
     },
     {
         name: "Dr. Asit Kumar Das",
-        photo: "https://xsgames.co/randomusers/assets/avatars/male/74.jpg",
+        photo: "https://oldwww.iiests.ac.in//images/faculty-and-staff-images/photo.png",
         email: "akdas@cs.iiests.ac.in",
         qualification: "Ph.D.",
         subjects: "Data Structures, Algorithm Analysis",
@@ -26,7 +26,7 @@ const facultyDatabase = [
     },
     {
         name: "Dr. Sipra Das Bit",
-        photo: "https://xsgames.co/randomusers/assets/avatars/female/22.jpg",
+        photo: "https://oldwww.iiests.ac.in//images/faculty-and-staff-images/cst/cst-faculty_sipra-das-bit.jpg",
         email: "sdasbit@cs.iiests.ac.in",
         qualification: "Ph.D.",
         subjects: "Computer Networks, Mobile Computing",
@@ -34,19 +34,19 @@ const facultyDatabase = [
     },
     {
         name: "Dr. Jaya Sil",
-        photo: "https://xsgames.co/randomusers/assets/avatars/female/45.jpg",
+        photo: "https://oldwww.iiests.ac.in//images/faculty-and-staff-images/cst/cst-faculty_jaya-sil.jpg",
         email: "jsil@cs.iiests.ac.in",
         qualification: "Ph.D.",
         subjects: "Artificial Intelligence, Automata Theory",
         research: "Soft Computing, Image Processing"
     },
     {
-        name: "Dr. Ruchira Naskar",
-        photo: "https://xsgames.co/randomusers/assets/avatars/female/67.jpg",
-        email: "ruchira@cs.iiests.ac.in",
+        name: "Dr. Nirnay Ghosh",
+        photo: "https://oldwww.iiests.ac.in//images/faculty-and-staff-images/cst/cst-faculty_nirnay-ghosh.jpg",
+        email: "nirnay@cs.iiests.ac.in",
         qualification: "Ph.D.",
-        subjects: "Cryptography, Network Security",
-        research: "Information Forensics, Watermarking"
+        subjects: "Cloud Computing, Network Security",
+        research: "Network Security, Mobile Crowdsensing, Internet of Things (IoT)"
     }
 ];
 
