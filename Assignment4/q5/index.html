@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Student Information Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f8ff;
+            padding: 40px;
+        }
+
+        .form-box {
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #b8c7e0;
+            border-radius: 8px;
+            background-color: white;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .radio {
+            width: auto;
+        }
+
+        button {
+            width: 100%;
+            padding: 9px;
+            margin-top: 15px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h2>Student Information</h2>
+
+    <form action="process.php" method="POST" enctype="multipart/form-data">
+
+        <label>Name:</label>
+        <input type="text" name="name" required>
+
+        <label>Password:</label>
+        <input type="password" name="password" required>
+
+        <label>Gender:</label>
+
+        <input class="radio"
+               type="radio"
+               name="gender"
+               value="Male"
+               required> Male
+
+        <input class="radio"
+               type="radio"
+               name="gender"
+               value="Female"> Female
+
+        <label>Department:</label>
+
+        <select name="department">
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="ME">Mechanical</option>
+            <option value="CE">Civil</option>
+        </select>
+
+        <label>Upload Photo:</label>
+        <input type="file" name="photo">
+
+        <input type="hidden"
+               name="student_id"
+               value="2026CSE001">
+
+        <button type="submit">
+            Submit Information
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

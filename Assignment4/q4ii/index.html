@@ -1,0 +1,58 @@
+<style>
+    .box {
+        width: 350px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #b8c7e0;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #f4f8ff;
+    }
+
+    h2 {
+        color: #2563eb;
+    }
+
+    input {
+        width: 90%;
+        padding: 8px;
+        margin: 10px 0;
+        border: 1px solid #b8c7e0;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 8px 15px;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #1d4ed8;
+    }
+</style>
+
+<div class="box">
+
+    <h2>Animal Names</h2>
+
+    <form action="process.php" method="POST">
+
+        <input type="hidden" name="task" value="animals">
+
+        <label>Enter number of animals:</label>
+
+        <input type="number"
+               name="n"
+               min="1"
+               max="10"
+               required>
+
+        <button type="submit">Display Animals</button>
+
+    </form>
+
+</div>

@@ -1,0 +1,58 @@
+<style>
+    .box {
+        width: 350px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #b8c7e0;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #f4f8ff;
+    }
+
+    h2 {
+        color: #2563eb;
+    }
+
+    input {
+        width: 90%;
+        padding: 8px;
+        margin: 8px 0;
+        border: 1px solid #b8c7e0;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 8px 15px;
+        background-color: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="box">
+
+    <h2>Student Marks</h2>
+
+    <form action="process.php" method="POST">
+
+        <input type="hidden" name="task" value="marks">
+
+        <label>Mathematics:</label>
+        <input type="number" name="math" min="0" max="100" required>
+
+        <label>Physics:</label>
+        <input type="number" name="physics" min="0" max="100" required>
+
+        <label>Computer Science:</label>
+        <input type="number" name="cs" min="0" max="100" required>
+
+        <label>English:</label>
+        <input type="number" name="english" min="0" max="100" required>
+
+        <button type="submit">Calculate Result</button>
+
+    </form>
+
+</div>
