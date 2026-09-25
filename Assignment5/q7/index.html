@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Manage Students</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        table {
+            width: 90%;
+            margin: 25px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+            margin: 2px;
+        }
+
+        .edit {
+            background-color: #f59e0b;
+        }
+
+        .delete {
+            background-color: #dc2626;
+        }
+
+        .save {
+            background-color: #16a34a;
+        }
+
+        .cancel {
+            background-color: #6b7280;
+        }
+
+        #message {
+            font-weight: bold;
+            margin: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Manage Student Records</h1>
+
+    <div id="message"></div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Marks</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+
+        // Fetch and display all students
+        function loadStudents() {
+
+            fetch("api.php?action=fetch")
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    let tableBody =
+                        document.getElementById("tableBody");
+
+                    tableBody.innerHTML = "";
+
+                    data.forEach(student => {
+
+                        let row = `
+                            <tr id="row-${student.id}">
+
+                                <td>${student.id}</td>
+
+                                <td>${student.name}</td>
+
+                                <td>${student.gender}</td>
+
+                                <td>${student.department}</td>
+
+                                <td>${student.marks}</td>
+
+                                <td>
+                                    <button
+                                        class="edit"
+                                        onclick="editStudent(${student.id})">
+                                        Edit
+                                    </button>
+
+                                    <button
+                                        class="delete"
+                                        onclick="deleteStudent(${student.id})">
+                                        Delete
+                                    </button>
+                                </td>
+
+                            </tr>
+                        `;
+
+                        tableBody.innerHTML += row;
+
+                    });
+
+                });
+
+        }
+
+
+        // Edit a student
+        function editStudent(id) {
+
+            let row =
+                document.getElementById("row-" + id);
+
+            let cells = row.children;
+
+            let name = cells[1].innerText;
+            let gender = cells[2].innerText;
+            let department = cells[3].innerText;
+            let marks = cells[4].innerText;
+
+            row.innerHTML = `
+
+                <td>${id}</td>
+
+                <td>
+                    <input
+                        type="text"
+                        id="name-${id}"
+                        value="${name}">
+                </td>
+
+                <td>
+                    <select id="gender-${id}">
+                        <option value="Male"
+                            ${gender == "Male" ? "selected" : ""}>
+                            Male
+                        </option>
+
+                        <option value="Female"
+                            ${gender == "Female" ? "selected" : ""}>
+                            Female
+                        </option>
+                    </select>
+                </td>
+
+                <td>
+                    <select id="department-${id}">
+
+                        <option value="CSE"
+                            ${department == "CSE" ? "selected" : ""}>
+                            CSE
+                        </option>
+
+                        <option value="ECE"
+                            ${department == "ECE" ? "selected" : ""}>
+                            ECE
+                        </option>
+
+                        <option value="ME"
+                            ${department == "ME" ? "selected" : ""}>
+                            ME
+                        </option>
+
+                        <option value="CE"
+                            ${department == "CE" ? "selected" : ""}>
+                            CE
+                        </option>
+
+                    </select>
+                </td>
+
+                <td>
+                    <input
+                        type="number"
+                        id="marks-${id}"
+                        value="${marks}">
+                </td>
+
+                <td>
+
+                    <button
+                        class="save"
+                        onclick="saveStudent(${id})">
+                        Save
+                    </button>
+
+                    <button
+                        class="cancel"
+                        onclick="loadStudents()">
+                        Cancel
+                    </button>
+
+                </td>
+            `;
+        }
+
+
+        // Send updated data to PHP
+        function saveStudent(id) {
+
+            let formData = new FormData();
+
+            formData.append(
+                "id",
+                id
+            );
+
+            formData.append(
+                "name",
+                document.getElementById("name-" + id).value
+            );
+
+            formData.append(
+                "gender",
+                document.getElementById("gender-" + id).value
+            );
+
+            formData.append(
+                "department",
+                document.getElementById("department-" + id).value
+            );
+
+            formData.append(
+                "marks",
+                document.getElementById("marks-" + id).value
+            );
+
+
+            fetch("api.php?action=update", {
+
+                method: "POST",
+
+                body: formData
+
+            })
+
+            .then(response => response.text())
+
+            .then(data => {
+
+                document.getElementById("message").innerText =
+                    data;
+
+                loadStudents();
+
+            });
+
+        }
+
+
+        // Delete a student
+        function deleteStudent(id) {
+
+            if (!confirm("Are you sure you want to delete this student?")) {
+                return;
+            }
+
+            let formData = new FormData();
+
+            formData.append("id", id);
+
+
+            fetch("api.php?action=delete", {
+
+                method: "POST",
+
+                body: formData
+
+            })
+
+            .then(response => response.text())
+
+            .then(data => {
+
+                document.getElementById("message").innerText =
+                    data;
+
+                loadStudents();
+
+            });
+
+        }
+
+
+        // Load records when page opens
+        loadStudents();
+
+    </script>
+
+</body>
+
+</html>

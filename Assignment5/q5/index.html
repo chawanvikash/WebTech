@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Search and Sort</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            padding: 30px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        #searchBox {
+            width: 350px;
+            padding: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        table {
+            width: 85%;
+            margin: 25px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        th:hover {
+            background-color: #1e40af;
+        }
+
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #eef4ff;
+        }
+
+        .arrow {
+            margin-left: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Student Records</h1>
+
+    <input
+        type="text"
+        id="searchBox"
+        placeholder="Search by name, gender or department..."
+        onkeyup="searchStudents()"
+    >
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th onclick="sortStudents('id')">
+                    ID <span id="arrow-id"></span>
+                </th>
+
+                <th onclick="sortStudents('name')">
+                    Name <span id="arrow-name"></span>
+                </th>
+
+                <th onclick="sortStudents('gender')">
+                    Gender <span id="arrow-gender"></span>
+                </th>
+
+                <th onclick="sortStudents('department')">
+                    Department <span id="arrow-department"></span>
+                </th>
+
+                <th onclick="sortStudents('marks')">
+                    Marks <span id="arrow-marks"></span>
+                </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+
+        let currentSort = "id";
+        let currentOrder = "ASC";
+
+
+        // Search records
+        function searchStudents() {
+
+            let search =
+                document.getElementById("searchBox").value;
+
+            loadStudents(search);
+
+        }
+
+
+        // Sort records
+        function sortStudents(column) {
+
+            if (currentSort === column) {
+
+                // Same column → change direction
+                if (currentOrder === "ASC") {
+                    currentOrder = "DESC";
+                } else {
+                    currentOrder = "ASC";
+                }
+
+            } else {
+
+                // New column → start with ascending
+                currentSort = column;
+                currentOrder = "ASC";
+
+            }
+
+            let search =
+                document.getElementById("searchBox").value;
+
+            loadStudents(search);
+
+        }
+
+
+        // AJAX request
+        function loadStudents(search) {
+
+            let url =
+                "search.php?search=" +
+                encodeURIComponent(search) +
+                "&sort=" +
+                encodeURIComponent(currentSort) +
+                "&order=" +
+                currentOrder;
+
+
+            fetch(url)
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    let tableBody =
+                        document.getElementById("tableBody");
+
+                    tableBody.innerHTML = "";
+
+
+                    data.forEach(student => {
+
+                        let row = `
+                            <tr>
+
+                                <td>${student.id}</td>
+
+                                <td>${student.name}</td>
+
+                                <td>${student.gender}</td>
+
+                                <td>${student.department}</td>
+
+                                <td>${student.marks}</td>
+
+                            </tr>
+                        `;
+
+                        tableBody.innerHTML += row;
+
+                    });
+
+
+                    updateArrows();
+
+                })
+
+                .catch(error => {
+
+                    console.log(error);
+
+                });
+
+        }
+
+
+        // Display ↑ or ↓ on the selected column
+        function updateArrows() {
+
+            let columns = [
+                "id",
+                "name",
+                "gender",
+                "department",
+                "marks"
+            ];
+
+
+            columns.forEach(column => {
+
+                document.getElementById(
+                    "arrow-" + column
+                ).innerText = "";
+
+            });
+
+
+            let arrow =
+                currentOrder === "ASC" ? "↑" : "↓";
+
+
+            document.getElementById(
+                "arrow-" + currentSort
+            ).innerText = arrow;
+
+        }
+
+
+        // Load all records initially
+        loadStudents("");
+
+    </script>
+
+</body>
+
+</html>

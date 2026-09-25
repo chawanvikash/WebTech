@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Student Statistics</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        .stats {
+            margin: 20px auto;
+            width: 400px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px #ccc;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #eef4ff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Student Statistics</h1>
+
+    <button onclick="loadStatistics()">
+        Calculate Statistics
+    </button>
+
+    <div class="stats">
+
+        <p>
+            <strong>Total Marks:</strong>
+            <span id="total">-</span>
+        </p>
+
+        <p>
+            <strong>Average Marks:</strong>
+            <span id="average">-</span>
+        </p>
+
+    </div>
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Marks</th>
+                <th>Grade</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+    </table>
+
+
+    <script>
+
+        function loadStatistics() {
+
+            fetch("statistics.php")
+
+                .then(response => response.json())
+
+                .then(data => {
+
+                    // Display total
+                    document.getElementById("total").innerText =
+                        data.total;
+
+                    // Display average
+                    document.getElementById("average").innerText =
+                        data.average;
+
+
+                    // Display student table
+                    let tableBody =
+                        document.getElementById("tableBody");
+
+                    tableBody.innerHTML = "";
+
+
+                    data.students.forEach(student => {
+
+                        let row = `
+                            <tr>
+                                <td>${student.id}</td>
+                                <td>${student.name}</td>
+                                <td>${student.department}</td>
+                                <td>${student.marks}</td>
+                                <td>${student.grade}</td>
+                            </tr>
+                        `;
+
+                        tableBody.innerHTML += row;
+
+                    });
+
+                })
+
+                .catch(error => {
+
+                    console.log(error);
+
+                });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

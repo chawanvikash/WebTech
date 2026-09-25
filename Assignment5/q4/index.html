@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Student</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            padding: 30px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2563eb;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        .radio {
+            width: auto;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Add Student</h1>
+
+        <form id="studentForm">
+
+            <!-- Textbox -->
+            <label>Name:</label>
+            <input type="text" name="name" required>
+
+
+            <!-- Radio buttons -->
+            <label>Gender:</label>
+
+            <input class="radio"
+                   type="radio"
+                   name="gender"
+                   value="Male"
+                   required>
+            Male
+
+            <input class="radio"
+                   type="radio"
+                   name="gender"
+                   value="Female">
+            Female
+
+
+            <!-- List box -->
+            <label>Department:</label>
+
+            <select name="department" required>
+                <option value="">Select Department</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="ME">ME</option>
+                <option value="CE">CE</option>
+            </select>
+
+
+            <!-- Marks -->
+            <label>Marks:</label>
+            <input type="number" name="marks" min="0" max="100" required>
+
+
+            <!-- Hidden element -->
+            <input type="hidden" name="student_id" value="new">
+
+
+            <button type="submit">
+                Add Student
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+    </div>
+
+
+    <script>
+
+        document.getElementById("studentForm")
+            .addEventListener("submit", function(event) {
+
+                // Prevent page reload
+                event.preventDefault();
+
+                let formData = new FormData(this);
+
+                fetch("add_student.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+
+                    document.getElementById("message").innerText = data;
+
+                    // Clear form after successful insertion
+                    if (data.includes("successfully")) {
+                        document.getElementById("studentForm").reset();
+                    }
+
+                })
+                .catch(error => {
+
+                    document.getElementById("message").innerText =
+                        "Error occurred while adding student.";
+
+                    console.log(error);
+                });
+
+            });
+
+    </script>
+
+</body>
+
+</html>

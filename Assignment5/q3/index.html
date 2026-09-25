@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Records</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1d4ed8;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        table {
+            width: 80%;
+            margin: 25px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th {
+            background-color: #2563eb;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        tr:hover {
+            background-color: #eef4ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Student Records</h1>
+
+    <button onclick="loadStudents()">
+        Load Students
+    </button>
+
+    <table id="studentTable">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody">
+        </tbody>
+
+    </table>
+
+    <script>
+
+        function loadStudents() {
+
+            fetch("students.php")
+                .then(response => response.json())
+                .then(data => {
+
+                    let tableBody = document.getElementById("tableBody");
+
+                    tableBody.innerHTML = "";
+
+                    data.forEach(student => {
+
+                        let row = `
+                            <tr>
+                                <td>${student.id}</td>
+                                <td>${student.name}</td>
+                                <td>${student.gender}</td>
+                                <td>${student.department}</td>
+                                <td>${student.marks}</td>
+                            </tr>
+                        `;
+
+                        tableBody.innerHTML += row;
+                    });
+
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+
+    </script>
+
+</body>
+
+</html>
