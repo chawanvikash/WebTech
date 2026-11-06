@@ -13,6 +13,6 @@ function handleRequest(req, res) {
 const server = http.createServer(handleRequest);
 
 // Start the server
-server.listen(3000, () => {
+server.listen(9000, () => {
     console.log("Server running at http://localhost:3000");
 });
